@@ -74,9 +74,6 @@ public class Contact {
      * Location {street: , city: , state: , postcode: }
      */
     class Location {
-        @SerializedName("street")
-        @Expose
-        private String street;
         @SerializedName("city")
         @Expose
         private String city;
@@ -86,10 +83,6 @@ public class Contact {
         @SerializedName("postcode")
         @Expose
         private String postcode;
-
-        public String getStreet() {
-            return street;
-        }
 
         public String getCity() {
             return city;
@@ -105,7 +98,7 @@ public class Contact {
 
         @Override
         public String toString() {
-            return street + ", " + city + ", " + province + " Canada " + postcode;
+            return city + ", " + province + " Canada " + postcode;
         }
     }
 }
