@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ContactList> call, Throwable t) {
+                System.out.println(t);
                 // Error Handling
 
             }
