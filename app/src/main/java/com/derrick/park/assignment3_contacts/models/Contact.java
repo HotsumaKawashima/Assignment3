@@ -4,6 +4,15 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Contact {
+
+    public Contact() {}
+    public Contact(String name, String phone) {
+        this.name = new Name(name);
+        String[] arr = phone.split("");
+        this.cell = arr[1] + arr[2] + arr[3] + "-" + arr[4] + arr[5] + arr[6] + "-" + arr[7] + arr[8] + arr[9] + arr[10];
+        System.out.println(this.cell);
+    }
+
     @SerializedName("gender")
     @Expose
     private String gender;
@@ -42,13 +51,21 @@ public class Contact {
 
     @Override
     public String toString() {
-        return String.format("%n%s%n%s%n%s%n%s", name, location, email, cell);
+        return String.format("%n%s%n%s", name, cell);
     }
 
     /**
      * Name {first: , last: }
      */
-    class Name {
+    public class Name {
+
+        public Name() { }
+        public Name(String name) {
+            String[] arr = name.split("\\s");
+            first = arr[0];
+            last = arr[1];
+        }
+
         @SerializedName("first")
         @Expose
         private String first;
@@ -73,7 +90,7 @@ public class Contact {
     /**
      * Location {street: , city: , state: , postcode: }
      */
-    class Location {
+    public class Location {
         @SerializedName("city")
         @Expose
         private String city;
